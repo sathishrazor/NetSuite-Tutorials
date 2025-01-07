@@ -21,7 +21,8 @@ define(["N/record", "SuiteScripts/Utils/util"], function (record, util) {
                     id: test_so
                 })
 
-                var itemsFromSo = util.getLines(soRec, "item", ["item", "rate", "quantity", "description", "amount"])
+                var itemsFromSo = util.getLines(soRec, "item",
+                    ["item", "rate", "quantity", "description", "amount"])
 
                 context.response.write("SO ITEMS")
 
@@ -34,7 +35,8 @@ define(["N/record", "SuiteScripts/Utils/util"], function (record, util) {
                     id: test_po
                 })
 
-                var itemsFromPo = util.getLines(poRec, "item", ["item", "rate", "quantity", "amount"])
+                var itemsFromPo = util.getLines(poRec, "item",
+                    ["item", "rate", "quantity", "amount"])
 
                 context.response.write("PO ITEMS")
 
@@ -47,7 +49,8 @@ define(["N/record", "SuiteScripts/Utils/util"], function (record, util) {
                     id: test_customer
                 })
 
-                var addressBook = util.getLines(cusRec, "addressbook", ["addressid", "defaultbilling", "defaultshipping", "label"])
+                var addressBook = util.getLines(cusRec, "addressbook",
+                    ["addressid", "defaultbilling", "defaultshipping", "label"])
 
                 context.response.write("Addressbook")
 

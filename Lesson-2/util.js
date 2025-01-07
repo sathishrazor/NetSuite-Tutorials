@@ -38,10 +38,58 @@ define([], function () {
             log.error("getLines failed", e);
             return [];
         }
+    }
+
+
+    function pick(arr, key) {
+        try {
+            if (Array.isArray(arr)) {
+                return arr.map(function (c) {
+                    return c[key];
+                })
+            }
+            return [];
+        } catch (error) {
+            log.error('pick failed', e);
+        }
 
     }
+
+
+    function sum(arr, key) {
+
+        var valuesToSum = arr;
+
+        if (key) {
+
+            valuesToSum = arr.map(function (c) {
+
+                return toNum(c[key]);
+            })
+        }
+
+
+        return valuesToSum.reduce(function (a, b) {
+            return a + b
+        }, 0)
+    }
+
+
+    function toNum(s) {
+        s = parseFloat(s);
+
+        if (isNaN(s)) {
+            return 0;
+        }
+        return s;
+    }
+
+
     return {
-        getLines: getLines
+        getLines: getLines,
+        pick: pick,
+        sum: sum,
+        toNum: toNum
     }
 
 
